@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, TouchableOpacity, View, Image} from 'react-native';
 import { LargeButton } from '../../components';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import { colors, assets } from '../../config';
 
