@@ -3,6 +3,7 @@ export default {
         logoWithName: require('../assets/images/logo-designation-04.png')
     },
     icons: {
-        plus: require('../assets/icons/plus.png')
+        plus: require('../assets/icons/plus.png'),
+        close: require('../assets/icons/close.png')
     }
 };
