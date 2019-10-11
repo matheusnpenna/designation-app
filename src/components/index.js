@@ -1,9 +1,11 @@
 import PasswordInput from './passwordInput';
 import {
-    LargeButton
+    LargeButton,
+    CloseButton
 } from './buttons';
 
 export {
     LargeButton,
+    CloseButton,
     PasswordInput
 };
