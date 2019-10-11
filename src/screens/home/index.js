@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Platform, Text, View} from 'react-native';
+import {Platform, TouchableOpacity, View, Image} from 'react-native';
 import { LargeButton } from '../../components';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
+import { colors, assets } from '../../config';
 
 class HomeScreen extends Component {
   static navigationOptions = ({ navigationOptions }) => ({ header: null });
@@ -22,9 +24,14 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <LargeButton
-          text={'Criar Conteúdo'}
-          onPress={this.onPressCreateContent} />
+        {/* The user's feed will stay here*/}
+        <View style={styles.footer}>
+          {/* Some feature*/}
+           <TouchableOpacity onPress={this.onPressCreateContent} style={styles.addbuttonContaner}>
+              <Image source={assets.icons.plus} style={styles.addButtonIcon} />
+           </TouchableOpacity>
+          {/* Another feature (Maybe product recommendations)*/}
+        </View>
       </View>
     );
   }
