@@ -18,20 +18,28 @@ class SearchInput extends Component {
         }
     }
 
-    onChangeKeyword = (keyword) => this.setState({ keyword });
+    onChangeKeyword = (keyword) => {
+        this.props.onChange(keyword);
+        this.setState({ keyword });
+    }
 
     render() {
-        const { keyword } = this.state;
+        const {
+            onKeyPressEmail,
+            onChangeKeyword,
+            state: { keyword },
+            props: { onEndEditing }
+        } = this;
 
         return (
             <View style={styles.inputContainer}>
                 <Image source={assets.icons.search} style={styles.img} />
                 <TextInput
-                    style={styles.input}
                     placeholder={'PESQUISE O TEMA DO SEU CONTEÚDO'}
                     keyboardType={'default'}
-                    onKeyPress={this.onKeyPressEmail}
-                    onChangeText={this.onChangeKeyword}
+                    onKeyPress={onKeyPressEmail}
+                    onChangeText={onChangeKeyword}
+                    onEndEditing={onEndEditing}
                     value={keyword}
                 />
             </View>
