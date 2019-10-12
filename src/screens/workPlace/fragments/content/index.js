@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
-import { Text, View, Image } from 'react-native'
-import styles from './styles';
-import { assets } from '../../../../config';
+import { TextInput, Text, View, Image, Keyboard } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { assets } from '../../../../config'
+import { SearchInput } from '../../../../components'
+import styles from './styles'
 
 class ContentFragment extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            keyword:''
+        };
+    }
+
+    onChangeKeyword = (keyword) => this.setState({ keyword });
     
     render() {
         return (
-            <View styles={styles.container}>
-                <Image source={assets.images.logoWithName} />
-            </View>
+            <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+                <Image source={assets.images.logoWithName} style={styles.img} />
+                <SearchInput onChange={this.onChangeKeyword} />
+                <Text style={styles.subtitle}>Pesquise por palavras-chave</Text>
+            </KeyboardAwareScrollView>
         );
     }
 }
