@@ -8,7 +8,8 @@ export default {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        marginHorizontal: 20
     },
     img: {
         height: 20,
