@@ -4,6 +4,7 @@ export default {
     },
     icons: {
         plus: require('../assets/icons/plus.png'),
-        close: require('../assets/icons/close.png')
+        close: require('../assets/icons/close.png'),
+        search: require('../assets/icons/search.png')
     }
 };
