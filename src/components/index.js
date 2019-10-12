@@ -1,4 +1,7 @@
-import PasswordInput from './passwordInput';
+import {
+    PasswordInput,
+    SearchInput
+} from './inputs';
 import {
     LargeButton,
     CloseButton
@@ -7,5 +10,6 @@ import {
 export {
     LargeButton,
     CloseButton,
-    PasswordInput
+    PasswordInput,
+    SearchInput
 };
