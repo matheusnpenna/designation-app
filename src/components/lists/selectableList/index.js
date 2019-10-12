@@ -16,7 +16,7 @@ class SelectableList extends Component {
         
         return (
             <View style={styles.container}>
-                <Text> SelectableList </Text>
+                {list.map((v,i) => <Text> {v.title} </Text>)}
             </View>
         )
     }
