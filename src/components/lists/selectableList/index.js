@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, FlatList } from 'react-native'
+import SelectableRow from './row';
 import styles from './styles'
 
 class SelectableList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             list: [],
             selectableList: []
         };
     }
-    
+
+    onSelectItem = () => {
+
+    }
+
     render() {
-        const { list } = this.props;
-        
+        const { 
+            onSelectItem,
+            props: { list }
+        } = this;
+
         return (
             <View style={styles.container}>
-                {list.map((v,i) => <Text> {v.title} </Text>)}
+                <FlatList
+                    data={list}
+                    renderItem={({ item }) => <SelectableRow onSelect={onSelectItem} title={item.title} />}
+                    keyExtractor={(item, index) => item.title+index}
+                />
             </View>
         )
     }
