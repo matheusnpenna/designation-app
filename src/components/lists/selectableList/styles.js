@@ -7,5 +7,11 @@ export default {
         height: 500,
         marginTop: 5,
         width: Dimensions.get('window').width
+    },
+    separator: {
+        height: 1,
+        width: '90%',
+        alignSelf: 'center',
+        backgroundColor: colors.grey,
     }
 };

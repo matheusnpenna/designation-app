@@ -8,5 +8,6 @@ export default {
     darkGrey: '#7a7a7a',
     bgGrey: '#EBEBEB',
     red: 'red',
-    transparent: 'transparent'
+    transparent: 'transparent',
+    green: '#18b500'
 }

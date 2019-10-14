@@ -8,12 +8,13 @@ class SelectableList extends Component {
         super(props);
         this.state = {
             list: [],
-            selectableList: []
+            selectedList: []
         };
     }
 
-    onSelectItem = () => {
-
+    onSelectItem = (item) => {
+        this.state.selectableList
+        console.log('Parent', item);
     }
 
     render() {
@@ -26,8 +27,9 @@ class SelectableList extends Component {
             <View style={styles.container}>
                 <FlatList
                     data={list}
-                    renderItem={({ item }) => <SelectableRow onSelect={onSelectItem} title={item.title} />}
+                    renderItem={({ item }) => <SelectableRow onSelect={onSelectItem} item={item}/>}
                     keyExtractor={(item, index) => item.title+index}
+                    ItemSeparatorComponent={() => <View style={styles.separator} />}
                 />
             </View>
         )
