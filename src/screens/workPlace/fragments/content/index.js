@@ -19,11 +19,9 @@ class ContentFragment extends Component {
     onEndEditing = () => {
         const { keyword } = this.state;
         this.setState({ isLoading: true });
-        console.log(keyword);
         DesignationApi.
         getContentIdeas(keyword,
             (contentList) => {
-                console.log(contentList);
                 this.setState({ contentList, isLoading: false });
             });
     }
