@@ -9,7 +9,8 @@ export default {
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        marginVertical: 10
     },
     img: {
         height: 20,

@@ -7,8 +7,7 @@ class SearchInput extends Component {
     constructor(props){
         super(props);
         this.state = {
-            keyword: '',
-            contentIdeas: []
+            keyword: ''
         };
     }
 
