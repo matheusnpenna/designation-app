@@ -7,6 +7,11 @@ import { userActions } from '../../redux';
 import { getWorkPlaceControl } from '../../redux/ui';
 import styles from './styles';
 
+const fragments = {
+  'content': <ContentFragments />,
+  'layout': <LayoutFragments />
+};
+
 class WorkPlaceScreen extends Component {
   static navigationOptions = ({ navigationOptions }) => ({ header: null });
   
@@ -18,8 +23,11 @@ class WorkPlaceScreen extends Component {
 
   renderFragments = (props) => {
     const { workPlaceControl: { inEdit, resourceInFocus } } = this.props;
+    // If inEdit is seted, them the user have an work unsaved
     if (inEdit) {
-      return Fragments[resourceInFocus];
+      // The fragments object have all fragments to show.
+      // The appear control is maked on redux
+      return fragments[resourceInFocus];
     } else {
       // Define contents is the first screent o appear
       return <ContentFragments />;

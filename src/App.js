@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 import { AppNavigator, LoggedAppNavigator } from './navigation';
@@ -40,6 +40,7 @@ export default class App extends Component {
       }
     })
   }
+  
   render() {
     const { navigator } = this.state;
     return (

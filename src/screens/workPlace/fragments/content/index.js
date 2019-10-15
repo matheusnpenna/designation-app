@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { TextInput, Text, View, Image, Keyboard } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { connect } from 'react-redux'
+import { userActions } from '../../../../redux'
+import { getWorkPlaceControl } from '../../../../redux/ui'
 import { assets } from '../../../../config'
 import { SearchInput, SelectableList, LargeButton } from '../../../../components'
 import {  DesignationApi } from '../../../../services'
@@ -31,7 +34,10 @@ class ContentFragment extends Component {
     onSelectKeywordList = (selectedList) => this.setState({ selectedList });
 
     submitListToGenerateLayout = () => {
-        const { selectedList } = this.state;   
+        const { selectedList } = this.state;
+        const { workPlaceControl, setWorkPlaceControl } = this.props;
+        // TODO: send list and new fragment to redux
+        //setWorkPlaceControl();
     }
     
     render() {
@@ -62,4 +68,11 @@ class ContentFragment extends Component {
         );
     }
 }
-export default ContentFragment;
+
+const mapStateToProps = state => ({ workPlaceControl: getWorkPlaceControl(state) });
+
+const mapDispatchToProps = dispatch => ({
+  setWorkPlaceControl: workPlace => dispatch(userActions.setWorkPlaceControl(workPlace))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentFragment);
