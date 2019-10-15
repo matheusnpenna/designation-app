@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { CloseButton } from '../../components';
-import { ContentFragments } from './fragments';
+import { ContentFragments, LayoutFragments } from './fragments';
 import styles from './styles';
 
 export default class WorkPlaceScreen extends Component {

@@ -1,5 +1,7 @@
-import ContentFragments from './content';
+import ContentFragments from './content'
+import LayoutFragments from './layout'
 
 export {
-    ContentFragments
+    ContentFragments,
+    LayoutFragments
 };
