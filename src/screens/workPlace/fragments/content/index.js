@@ -29,6 +29,10 @@ class ContentFragment extends Component {
     onChangeKeyword = (keyword) => this.setState({ keyword });
 
     onSelectKeywordList = (selectedList) => this.setState({ selectedList });
+
+    submitListToGenerateLayout = () => {
+        const { selectedList } = this.state;   
+    }
     
     render() {
         const { contentList } = this.state;
@@ -50,7 +54,7 @@ class ContentFragment extends Component {
                             containerCustomStyle={styles.buttonContainer}
                             textCustomStyle={styles.buttonText}
                             text={'Gerar Layout'}
-                            onPress={() => {}}
+                            onPress={this.submitListToGenerateLayout}
                               />
                     </View>
                 }
