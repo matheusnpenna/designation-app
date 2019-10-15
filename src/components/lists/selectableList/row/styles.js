@@ -2,8 +2,11 @@ import { colors } from '../../../../config'
 
 export default {
     container: {
-        padding: 15,
+        paddingHorizontal: 30,
+        paddingVertical: 15,
         flexDirection: 'row',
+        alignItems: 'center',
+        width: '85%',
     },
     title: {
         color: colors.white

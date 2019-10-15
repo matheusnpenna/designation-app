@@ -7,14 +7,22 @@ class SelectableList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: [],
             selectedList: []
         };
     }
 
     onSelectItem = (item) => {
-        this.state.selectableList
-        console.log('Parent', item);
+        const {
+            props: { onSelectList },
+            state: { selectedList }
+        } = this;
+        const i = selectedList.indexOf(item);
+        if(i == -1) {
+            selectedList.push(item);
+        } else {
+            selectedList.splice(i, 1);
+        }
+        onSelectList(selectedList);
     }
 
     render() {
@@ -29,7 +37,8 @@ class SelectableList extends Component {
                     data={list}
                     renderItem={({ item }) => <SelectableRow onSelect={onSelectItem} item={item}/>}
                     keyExtractor={(item, index) => item.title+index}
-                    ItemSeparatorComponent={() => <View style={styles.separator} />}
+                    ItemSeparatorComponent={() => <View style={styles.separator}
+                    contentContainerStyle={styles.flatList} />}
                 />
             </View>
         )

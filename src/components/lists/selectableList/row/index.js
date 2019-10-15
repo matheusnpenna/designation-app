@@ -10,7 +10,7 @@ const SelectableRow = (props) => {
             onPress={() => { props.onSelect(props.item); updateSelected(!isSelected); } }
             style={styles.container}>
             <View style={{ ...styles.radioButton, ...checkControl }}></View>
-            <Text style={styles.title}>{props.item.title}</Text>
+            <Text numberOfLines={2} adjustsFontSizeToFit ellipsizeMode={'clip'} style={styles.title}>{props.item.title}</Text>
         </TouchableOpacity>
     );
 }
