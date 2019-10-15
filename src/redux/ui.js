@@ -3,8 +3,7 @@ import { createActions, createReducer } from 'reduxsauce';
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  showPromotionalModal: ['payload'],
-  showAuthTouchModal: ['payload']
+  setWorkPlaceControl: ['payload']
 });
 
 export const InitTypes = Types;
@@ -12,34 +11,21 @@ export default Creators;
 
 /* ------------- Initial State ------------- */
 const INITIAL_STATE = Immutable({
-  hasConnection: true,
-  logoutModalVisible: false
-});
-
-/* ------------- Reducers ------------- */
-const showLogoutModal = (state, { payload }) => state.merge({
-  logoutModalVisible: payload
-});
-
-const showAuthTouchModal = (state, { payload }) => state.merge({
-  authTouchModalVisible: payload
-});
-
-const hideCustomDialog = state => state.merge({
-  customDialog: {
-    type: '',
-    visible: false,
-    buttons: []
+  workPlaceControl: {
+    inEdit: false,
+    resourceInFocus: 'content'
   }
 });
 
-
+/* ------------- Reducers ------------- */
+const setWorkPlaceControl = (state, { payload }) => state.merge({
+  workPlaceControl: payload
+});
 
 /* ------------- Selectors ------------- */
-export const getLogoutModalVisibility = ({ ui }) => ui.logoutModalVisible;
-export const getAuthTouchModalVisibility = ({ ui }) => ui.authTouchModalVisible;
+export const getWorkPlaceControl = ({ ui }) => ui.workPlaceControl;
+
 /* ------------- Root Reducer ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SHOW_LOGOUT_MODAL]: showLogoutModal,
-  [Types.SHOW_AUTH_TOUCH_MODAL]: showAuthTouchModal,
+  [Types.SET_WORK_PLACE_CONTROL]: setWorkPlaceControl
 });

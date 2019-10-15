@@ -8,8 +8,12 @@
 
 import React, {Component} from 'react';
 import { AsyncStorage } from 'react-native';
+import { Provider } from 'react-redux';
+import configureStore from './redux/configureStore';
 import { AppNavigator, LoggedAppNavigator } from './navigation';
 import { FirebaseApi } from './services';
+
+const store = configureStore(); // prepareRedux
 
 export default class App extends Component {
   constructor (props) {
@@ -18,6 +22,7 @@ export default class App extends Component {
       navigator: <AppNavigator/>
     } 
     
+
     AsyncStorage
       .getItem('sessionState')
       .then(sessionState => {
@@ -34,10 +39,13 @@ export default class App extends Component {
         this.setState({ navigator: <LoggedAppNavigator/> });
       }
     })
-
   }
   render() {
     const { navigator } = this.state;
-    return navigator;
+    return (
+      <Provider store={store}>
+        {navigator}
+      </Provider>
+    );
   }
 }

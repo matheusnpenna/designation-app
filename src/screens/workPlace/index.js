@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 import { CloseButton } from '../../components';
 import { ContentFragments, LayoutFragments } from './fragments';
+import { userActions } from '../../redux';
+import { getWorkPlaceControl } from '../../redux/ui';
 import styles from './styles';
 
-export default class WorkPlaceScreen extends Component {
+class WorkPlaceScreen extends Component {
   static navigationOptions = ({ navigationOptions }) => ({ header: null });
   
   constructor(props) {
@@ -14,9 +17,9 @@ export default class WorkPlaceScreen extends Component {
   }
 
   renderFragments = (props) => {
-    const { inEdit } = this.props;
+    const { workPlaceControl: { inEdit, resourceInFocus } } = this.props;
     if (inEdit) {
-      // here render the tab with all actions
+      return Fragments[resourceInFocus];
     } else {
       // Define contents is the first screent o appear
       return <ContentFragments />;
@@ -33,3 +36,12 @@ export default class WorkPlaceScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ workPlaceControl: getWorkPlaceControl(state) });
+
+const mapDispatchToProps = dispatch => ({
+  setWorkPlaceControl: workPlace => dispatch(userActions.setWorkPlaceControl(workPlace))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkPlaceScreen);
